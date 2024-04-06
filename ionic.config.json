@@ -1,0 +1,7 @@
+{
+  "name": "Apro",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

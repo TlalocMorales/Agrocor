@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Ticket de Compra
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        Volver
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let car of productsCar">
+      <ion-label color="primary">{{ car.name }} ({{ car.quantity }}) {{ car.price | currency }}</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-item>
+    <ion-label>Total del carrito: {{ total | currency }}</ion-label>
+  </ion-item>
+</ion-content>

@@ -1,0 +1,36 @@
+<!-- compras.page.html -->
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Historial de Compras
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        Volver
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-list *ngIf="purchaseHistory.length > 0">
+    <ion-item *ngFor="let purchase of purchaseHistory">
+      <ion-label color="primary" class="purchase-info">
+        <ion-note>{{ purchase.date | date:'medium' }}</ion-note>
+        <ion-note>Total: {{ purchase.total | currency }}</ion-note>
+      </ion-label>
+
+      <ion-list *ngFor="let product of purchase.products">
+        <ion-item>
+          <ion-label>{{ product.name }} ({{ product.quantity }}) {{ product.price | currency }}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-item>
+  </ion-list>
+
+  <ion-item *ngIf="purchaseHistory.length === 0">
+    <ion-label>No hay historial de compras.</ion-label>
+  </ion-item>
+
+</ion-content>
